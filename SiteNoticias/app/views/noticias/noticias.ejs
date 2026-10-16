@@ -7,5 +7,27 @@
 </head>
 <body>
     <h1>Portal de Noticias</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Titulo</th>
+                <th>Noticia</th>
+                <th>Data Criação</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <% for(let i=0; i < noticias.length; i++) { %>
+                <tr>
+                    <td><%= noticias[i].id_noticia%></td>
+                    <td><%= noticias[i].titulo%></td>
+                    <td><%= noticias[i].noticia%></td>
+                    <td><%= noticias[i].data_criacao%></td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
 </body>
 </html>
