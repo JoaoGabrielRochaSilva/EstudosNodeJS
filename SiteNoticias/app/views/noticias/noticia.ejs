@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Noticias</title>
+</head>
+<body>
+    <h1>Noticia</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Titulo</th>
+                <th>Noticia</th>
+                <th>Data Criação</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><%= noticia[0].id_noticia%></td>
+                <td><%= noticia[0].titulo%></td>
+                <td><%= noticia[0].noticia%></td>
+                <td><%= noticia[0].data_criacao%></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
