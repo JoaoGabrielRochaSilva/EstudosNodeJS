@@ -1,5 +1,3 @@
-const { connect } = require("../../config/server");
-
 module.exports = () => {
 
     this.getNoticias = (connection, callback) => {
