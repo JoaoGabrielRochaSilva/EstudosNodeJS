@@ -1,23 +1,10 @@
-var express = require('express');
+var app = require("./config/server");
 
-var app = express();
+var rotaHome = require("./app/routies/home")(app);
 
-app.set("view engine", "ejs");
+var rotaFormulario = require("./app/routies/formulario_insercao_noticia")(app);
 
-app.get("/", (req , res) => {
-
-    res.render("home/index")
-});
-
-app.get("/formulario_insercao_noticia", (req , res) => {
-
-    res.render("admin/formulario_insercao_noticia")
-})
-
-app.get("/noticias", (req , res) => {
-
-    res.render("noticias/noticias")
-})
+var rotaNoticias = require("./app/routies/noticias")(app);
 
 app.listen(3000, () => {
     console.log("Rodando essa bomba com express framework");
