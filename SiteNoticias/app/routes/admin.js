@@ -1,11 +1,25 @@
 module.exports = (app) => {
     app.get("/formulario_insercao_noticia", (req , res) => {
 
-        res.render("admin/formulario_insercao_noticia")
+        res.render("admin/formulario_insercao_noticia", {validacao: [], noticia: {}})
     })
 
     app.post("/noticias/salvar", (req , res) => {
         var noticia = req.body;
+
+        req.assert("titulo", "Titulo é obrigatório").notEmpty();
+        req.assert("resumo", "Resumo é obrigatório").notEmpty();
+        req.assert("resumo", "O resumo tem que ter entre 10 e 100 caracteres").len(10, 100);
+        req.assert("autor", "Autor é obrigatório").notEmpty();
+        req.assert("data_noticia", "Data é obrigatória").notEmpty().isDate({format: "YYYY-MM-DD"});
+        req.assert("noticia", "Noticia é obrigatória").notEmpty();
+
+        var erros = req.validationErrors();
+
+        if (erros) {
+            res.render("admin/formulario_insercao_noticia", {validacao: erros, noticia: noticia})
+            return;
+        }
         
         var connection = app.config.dbConnection();
         var NoticiasDAO = new app.app.models.NoticiasDAO(connection);
