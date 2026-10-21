@@ -3,9 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adicionar Noticia</title>
+    <title>Formulário de Cadastro de Notícia</title>
 </head>
 <body>
-    <h1>Adicionar Noticia</h1>
+    <main>
+        <h1>Adicionar Notícia</h1>
+
+        <section>
+            <form action="/noticias/salvar" method="post">
+                <p>
+                    <label for="titulo">Título</label>
+                    <input type="text" name="titulo" id="titulo" placeholder="Titulo da Noticia">
+                </p>
+                
+                <p>
+                    <label for="noticia">Notícia</label>
+                    <textarea name="noticia" id="noticia" cols="30" rows="10"></textarea>
+                </p>
+               
+                <p>
+                    <input type="submit" value="Salvar">
+                </p>   
+            </form>
+        </section>
+    </main>
+    
 </body>
 </html>
